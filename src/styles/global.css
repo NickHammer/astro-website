@@ -1,81 +1,67 @@
-html {
-    background-color: #f1f5f9;
-    font-family: sans-serif;
+:root {
+    --primary-color: #ff9776;
+    --background-color: #f1f5f9;
+    --text-color: #333;
+    --footer-header-background-color: #4c1d95; /* Unified variable for both */
+    --footer-header-text-color: #fff; /* Unified variable for both */
 }
 
 body {
-    margin: 0 auto;
-    width: 100%;
-    max-width: 80ch;
-    padding: 1rem;
-    line-height: 1.5;
+    background-color: var(--background-color);
+    color: var(--text-color);
 }
 
-* {
-    box-sizing: border-box;
-}
-
-h1 {
-    margin: 1rem 0;
-    font-size: 2.5rem;
-}
-
-/* nav styles */
-.hamburger {
-    padding-right: 20px;
-    cursor: pointer;
-}
-
-.hamburger .line {
-    display: block;
-    width: 40px;
-    height: 5px;
-    margin-bottom: 10px;
-    background-color: #ff9776;
-}
-
+/* General styles for nav elements used in header and footer */
 .nav-links {
-    width: 100%;
-    top: 5rem;
-    left: 48px;
-    background-color: #ff9776;
-    display: none;
+    display: flex;
+    justify-content: space-between; /* Updated from space-around to space-between */
+    align-items: center;
+    list-style: none;
+    width: calc(100% - 40px); /* Adjust this value based on the hamburger button size */
     margin: 0;
+    padding: 0;
 }
+
 
 .nav-links a {
-    display: block;
-    text-align: center;
-    padding: 10px 0;
     text-decoration: none;
+    color: var(--footer-header-text-color);
     font-size: 1.2rem;
-    font-weight: bold;
-    text-transform: uppercase;
+    padding: 10px 15px; /* Sufficient for clickable area */
 }
 
-.nav-links a:hover,
-.nav-links a:focus {
-    background-color: #ff9776;
+.nav-links a:hover, .nav-links a:focus {
+    background-color: var(--primary-color);
 }
 
-.expanded {
-    display: unset;
+
+footer, header {
+    background-color: var(--footer-header-background-color);
+    color: var(--footer-header-text-color);
 }
 
-@media screen and (min-width: 636px) {
-    .nav-links {
-        margin-left: 5em;
-        display: block;
-        position: static;
-        background: none;
-    }
+.content-container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-top: 20px; /* Adjust to the height of your header */
+    margin-bottom: 20px; /* Adjust to the height of your footer */
+    height: calc(100vh - 40px); /* Adjust to the total vertical space taken by the header and footer */
+}
 
-    .nav-links a {
-        display: inline-block;
-        padding: 15px 20px;
-    }
+.image-content {
+    flex: auto;
+    height: 80%; /* Same calculation as for the .content-container */
+}
 
-    .hamburger {
-        display: none;
-    }
+.text-content {
+    flex-basis: 50%;
+    max-width: 50%; /* Limit the text content to half the container's width */
+}
+
+.image-content img {
+    width: 75%; /* Fill the width */
+    height: 75%; /* Fill the height */
+    object-fit: contain; /* Contain within the area without clipping */
+    background-color: #f1f5f9; /* Matches the background color, adjust as needed */
 }

@@ -3,14 +3,26 @@ import Social from './Social.astro';
 ---
 <style>
     footer {
+        position: fixed; /* Positioning the footer at the bottom and making it fixed */
+        bottom: 0;
+        left: 0;
+        width: 100%; /* Full width */
+        background-color: #ff9776; /* Dark background for the footer */
+        color: white; /* Light text for visibility */
         display: flex;
+        justify-content: space-around; /* Evenly space out the contents */
+        align-items: center;
+        padding: 1rem 0; /* Padding for aesthetics */
         gap: 1rem;
-        margin-top: 2rem;
+        z-index: 1000; /* High z-index to ensure it's above other content */
+    }
+    body {
+        margin-bottom: 60px; /* Add a bottom margin to the body equal to the height of the footer */
     }
 </style>
 
 <footer>
-    <Social platform="X" username="dingus__prime" />
+    <Social platform="Twitter" username="dingus__prime" />
     <Social platform="Linkedin" username="Nicholas Hammerstrom" />
     <Social platform="Github" username="NickHammer" />
 </footer>
